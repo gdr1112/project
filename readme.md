@@ -7,4 +7,4 @@
     - 사용언어: python
     - 사용툴: Flask, Psycopg2, Selenium, Schedule
     - 내용: 카카오 챗봇을 이용해 실시간 지하철 사건 사고 알림을 위한 프로젝트
-    - [최종 PDF](https://github.com/gdr1112/project/blob/main/human-subway/%EC%A7%80%ED%95%98%EC%B2%A0%20%EA%B5%90%ED%86%B5%20%EB%8F%84%EC%9A%B0%EB%AF%B8.pdf)
+    - [최종 PDF](https://github.com/gdr1112/project/blob/main/%EC%A7%80%ED%95%98%EC%B2%A0%20%EA%B5%90%ED%86%B5%20%EB%8F%84%EC%9A%B0%EB%AF%B8.pdf)
