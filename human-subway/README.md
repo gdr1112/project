@@ -1,39 +1,13 @@
 # 휴먼교육센터 챗봇 프로젝트
 
----
+## 웹 데이터 크롤링
+1. 라이브러리 import 하기
+    from selenium import webdriver
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.common.by import By
+    from datetime import date
+    import requests
+    import psycopg2
+    import time
 
-### 22.11.8 ~ 11.11
 
-기획보고기간
-
----
-
-### 22.11.11 ~ 11.12
-
-heroku 서버설정
-
----
-
-### 22.11.12 ~ 11.13
-
-API & 크롤링 코드작업
-
----
-
-### 22.11.13 ~ 11.15
-
-postgreDB 연결
-
----
-
-### 2022.11.16 ~ 11.18
-
-챗봇 프로그램 작성 및 수정
-
----
-
-### 2022.11.19 ~ 11.28 
-
-최종 ppt 작성 및 강사님 컨펌
-
----
