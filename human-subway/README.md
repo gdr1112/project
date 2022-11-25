@@ -15,7 +15,6 @@
     - PostgerSQL을 보다 쉽게 관리하게 GUI 환경을 제공해주는 툴.
 #### WEBSERVER
  - Heroku - 7.53.0
-     - 클라우드 기반의 어플리케이션 플랫폼으로 github를 지원해 준다.
 #### 사용 언어
  - Python - 3.10.7
 ####  사용한 Library
@@ -26,24 +25,26 @@
     
 ### Tool
 - Kakao I open builder
-    - KaKao I : 카카오의 통합 인공지는 플랫폼
-    - KaKao I open bulider : 누구나 사용할 수 있는 KaKao I 개발플랫폼
+    - '챗봇 관리자센터'는 카카오 인공지능 기술을 이용하여 카카오톡 채널 챗봇과 카카오미니 보이스봇을 동시에 설계할 수 있는 카카오 AI 설계 플랫폼입니다.
+    - [KaKao I open builder 설명](https://i.kakao.com/docs/getting-started-overview#%EC%B1%97%EB%B4%87-%EA%B4%80%EB%A6%AC%EC%9E%90%EC%84%BC%ED%84%B0-%EC%86%8C%EA%B0%9C)
 
 ## 준비기간 : 2022.11.18 ~ 2022.12.02
 
 ## 지하철 교통 도우미 챗봇의 주요 기능
 1. 지하철 속보 실시간 알림
     - 실시간으로 업데이트 되는 지하철 속보를 카카오 메세지로 전송
-    ![image info](./image/2022-11-25-14-40-26.png)
+   
 2. 지하철 속보 검색
-    - 실시간 알림과 함께 현재 날짜의 지하철 속보를 검색할 수 있음.
-    ![image info](./image/2022-11-25-14-45-12.png)
+    - 실시간 알림과 함께 현재 날짜의 지하철 속보를 검색할 수 있음.<br/>
+
 3. 목적지 검색
     - 지하철 사건사고로 인한 연착에 대비해 다른 경로의 대중교통을 검색할 수 있음
-    ![image info](./image/2022-11-25-14-46-27.png)
+  
 4. 뉴스 검색
     - 지하철 지연등 자세한 정보를 알아보기 위한 실시간 뉴스 검색 가능
-    ![image info](./image/2022-11-25-14-48-06.png)
+  
 5. 간편지연증명서
     - 지하철 지연에 대한 지연증명서 발급서비스
-    ![image info](./image/2022-11-25-14-49-48.png)
+
+### 완성 결과 PDF
+[PDF](https://github.com/gdr1112/project/blob/main/human-subway/%EC%A7%80%ED%95%98%EC%B2%A0%20%EA%B5%90%ED%86%B5%20%EB%8F%84%EC%9A%B0%EB%AF%B8%20%EC%B1%97%EB%B4%87.pdf)
