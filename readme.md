@@ -1,7 +1,6 @@
 ### 프로젝트
 1. 지하철 교통 도우미 (산대특 챗봇 프로젝트)
-    - 폴더명 : [human-subway](https://github.com/gdr1112/project/tree/main/human-subway)
-    
+    - 폴더명 : [human-subway](https://github.com/gdr1112/project/tree/main/human-subway)    
     - 기간: 2022.11.18 ~ 2022.12.2
     - 팀명: SAIN(3명)
     - 사용언어: python
