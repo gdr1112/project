@@ -1,0 +1,344 @@
+<html layout:decorate="~{layout}">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/rcm/rcm.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="rcm-area">
+	<h1 style="padding-left:15px; padding-top:60px;">추천코스 - 가족코스</h1>
+	<hr>
+	
+	
+	<div class="rcm-area02">
+		<div class="rcm-side">
+			<div class="rcm-side02">
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/couple'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">커플</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/family'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">가족</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/restaurant'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">맛집</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/nature'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">자연</div>
+			</div>
+		</div>
+		
+		<div class="rcm-content">					
+				<div class="rcm-boxalign">
+				<div class="rcm-content02" id="f1">
+					<div class="rcm-textTitle">
+						예술의 전당
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당2.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당3.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당4.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당5.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당6.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당10.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/예술의전당8.jpg}" /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+						
+						<div class="rcm-text">남부터미널역 인근에 위치한 예술의 전당은 전시회, 음악공연, 오페라 등 다양한 문화활동을 제공하고있다.</div>
+						<div class="rcm-text">1988년 음악당과 서울서예박물관, 1990년 한가람미술관과 예술자료관, 1993년 오페라하우스 완공으로 완성된 서울 예술의전당은 연간 300만명의 방문객이 찾는 우리나라 문화예술의 중심이다.</div>
+						<div class="rcm-text">현재는 이집트 미라전, 넥스테이지:넥슨게임 아트, 알버트 왓슨 사진전 등등 다양한 사진 문화 공연을 진행중이고, 다양한 연극과 오페라도 상영하고있어 자녀들과 함께 문화 체험을 하고싶은 사람에게 추천</div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:GetShow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/f1.png}"/>
+							</div>
+						</div>				
+
+					
+
+					<hr>
+					
+					<div class="container my-3">
+					<table class="table" style="border-left: none; border-right: none;">
+						
+				    <thead>
+				        <tr>
+				            <th style="width: 80px;">별점</th>
+				            <th style="width: 120px;">닉네임</th>
+				            <th>후기</th>
+				        	<th style="width: 150px;">작성일자</th>
+				
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr th:each="review5, loop : ${paging5}">
+						    <td style="width: 80px;" th:text="${review5.reviewStar5}"></td>
+				            <td style="width: 120px;" th:text="${review5.id5}"></td>
+				            <td th:text="${review5.reviewContents5}"></td>
+				            <td style="width: 150px;" th:text="${#temporals.format(review5.createDate5, 'yyyy-MM-dd HH:mm')}"></td>
+				        </tr>
+				    </tbody>
+					</table>
+				    <!-- 페이징처리 시작 -->
+				    <div th:if="${!paging5.isEmpty()}">
+						
+				        <ul class="pagination justify-content-center">
+				            <li class="page-item" th:classappend="${!paging5.hasPrevious} ? 'disabled'">
+				                <a class="page-link"
+				                    th:href="@{|?page5=${paging5.number-1}#div1|}">
+				                    <span>이전</span>
+				                </a>
+				            </li>
+				            <li th:each="page5: ${#numbers.sequence(0, paging5.totalPages-1)}"
+				            	th:if="${page5 >= paging5.number-2 and page5 <= paging5.number+2}"
+				                th:classappend="${page5 == paging5.number} ? 'active'" 
+				                class="page-item">
+				                <a th:text="${page5}" class="page-link" th:href="@{|?page5=${page5}#div1|}"></a>
+				               
+				               
+				            </li>
+				            <li class="page-item" th:classappend="${!paging5.hasNext} ? 'disabled'">
+				                <a class="page-link" th:href="@{|?page5=${paging5.number+1}#div1|}">
+				                    <span>다음</span>
+				                </a>
+				            </li>
+				        </ul>
+				    </div>
+				    <!-- 페이징처리 끝 -->
+					<a th:href="@{/recommendcourse/create5}" class="btn btn-secondary">후기등록</a>
+					</div>
+
+					</div>
+			
+
+
+					
+					
+					
+					
+				</div><hr><br>
+				
+				
+				<div class="rcm-boxalign">
+				<div class="rcm-content02" id ="f2">
+					<div class="rcm-textTitle">
+						양재시민의 숲
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲2.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲8.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲7.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲3.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲4.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲9.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲10.jpg}" /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+						
+					
+						<div class="rcm-text">1986년 11월에 개장한 양재시민의숲은 2022년 윤봉길 의사의 아호인 매헌을 본따서 매헌시민의숲으로 이름을 변경하였다.</div>
+						<div class="rcm-text">매헌시민의숲 안에는 윤봉길 의사의 유물과 독립운동 관련 사진을 전시해놓은 윤봉길 의사 기념관과 높이 9.2m의 윤봉길 의사상, 2.14m의 윤봉길 의사 숭모비가 있다.</div>
+						<div class="rcm-text">또 6.25전쟁당시 비정규군 전투부대로 참전하여 희생된 이들을 위로하고자 세운 충혼탑, 1987년 북한의 테러로 폭파된 대한항공858기의 희상자 위령탑과 1995년 삼풍백화점 붕괴로 사망한 502명의 영혼과 유족들을 위로하기위한 삼풍사고희생자 위령탑이 있다.</div>
+						<div class="rcm-text">이처럼 아픈 역사와 비극 사건들을 한번더 되새길수 있는 매헌시민의숲은 신분당선 양재시민의숲역 바로 옆에 있어 교통이 편리하고, 봄 가을에는 벚꽃과 단풍으로 유명하다.</div>
+						<div class="rcm-text">매헌시민의숲은 주로 평지로 이루어져있어 아이들과 함께 걷기 좋고, 한적하면서도 조용하기에 바쁜 도심안에서 여유를 얻을수 있는공간이다.</div>
+						<div class="rcm-text">주말에 아이와 함께 산책을 하려는 사람에게 추천</div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:Getshow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide2" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/f2.png}"/>
+							</div>
+						</div>					
+					
+					
+				
+					<hr>
+				
+					<div class="container my-3">
+					<table class="table" style="border-left: none; border-right: none;">
+						
+				    <thead>
+				        <tr>
+				            <th style="width: 80px;">별점</th>
+				            <th style="width: 120px;">닉네임</th>
+				            <th>후기</th>
+				        	<th style="width: 150px;">작성일자</th>
+				
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr th:each="review6, loop : ${paging6}">
+						    <td style="width: 80px;" th:text="${review6.reviewStar6}"></td>
+				            <td style="width: 120px;" th:text="${review6.id6}"></td>
+				            <td th:text="${review6.reviewContents6}"></td>
+				            <td style="width: 150px;" th:text="${#temporals.format(review6.createDate6, 'yyyy-MM-dd HH:mm')}"></td>
+				        </tr>
+				    </tbody>
+					</table>
+				    <!-- 페이징처리 시작 -->
+				    <div th:if="${!paging6.isEmpty()}">
+						
+				        <ul class="pagination justify-content-center">
+				            <li class="page-item" th:classappend="${!paging6.hasPrevious} ? 'disabled'">
+				                <a class="page-link"
+				                    th:href="@{|?page6=${paging6.number-1}#div2|}">
+				                    <span>이전</span>
+				                </a>
+				            </li>
+				            <li th:each="page6: ${#numbers.sequence(0, paging6.totalPages-1)}"
+				            	th:if="${page6 >= paging6.number-2 and page6 <= paging6.number+2}"
+				                th:classappend="${page6 == paging6.number} ? 'active'" 
+				                class="page-item">
+				                <a th:text="${page6}" class="page-link" th:href="@{|?page6=${page6}#div2|}"></a>
+				               
+				               
+				            </li>
+				            <li class="page-item" th:classappend="${!paging6.hasNext} ? 'disabled'">
+				                <a class="page-link" th:href="@{|?page6=${paging6.number+1}#div2|}">
+				                    <span>다음</span>
+				                </a>
+				            </li>
+				        </ul>
+				    </div>
+				    <!-- 페이징처리 끝 -->
+					<a th:href="@{/recommendcourse/create6}" class="btn btn-secondary">후기등록</a>
+					</div>					
+					
+					
+					
+					
+					
+					
+					
+					
+				</div>
+			</div><hr><br>
+				
+				
+				
+				
+			<div class="rcm-boxalign">
+				<div class="rcm-content02" id="f3">
+					<div class="rcm-textTitle">
+						선유도공원
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/선유도2.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/선유도4.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/선유도5.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/선유도9.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmFamily/선유도10.jpg}" /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+
+						<div class="rcm-text">2000년 12월까지 정수장으로 사용되다가 폐쇄된 뒤 2002년 개장한 시민공원이다.</div>
+						<div class="rcm-text">한강역사관, 수질정화공원, 시간의정원, 온실, 물놀이장등의 다양한 시설들이 있어 아이들과 함께 놀러오기 좋으며, 사계절 변화하는 한강을 관찰하기 좋은 지역이다.</div>
+						<div class="rcm-text">서울둘레길 6코스와 매우 가깝고, 합정역과 당산역이 가까워 교통편의시설도 좋다.</div>
+						<div class="rcm-text">아이와 한강을 구경하고싶은 사람에게 추천</div>
+
+						
+						<div class="rcm-detail">
+							<a href="javascript:getshow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide3" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/f3.png}"/>
+							</div>
+						</div>	
+					
+					
+					
+					<hr>
+					<div class="container my-3">
+						<table class="table" style="border-left: none; border-right: none;">
+							
+					    <thead>
+					        <tr>
+					            <th style="width: 80px;">별점</th>
+					            <th style="width: 120px;">닉네임</th>
+					            <th>후기</th>
+					        	<th style="width: 150px;">작성일자</th>
+					
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr th:each="review7, loop : ${paging7}">
+							    <td style="width: 80px;" th:text="${review7.reviewStar7}"></td>
+					            <td style="width: 120px;" th:text="${review7.id7}"></td>
+					            <td th:text="${review7.reviewContents7}"></td>
+					            <td style="width: 150px;" th:text="${#temporals.format(review7.createDate7, 'yyyy-MM-dd HH:mm')}"></td>
+					        </tr>
+					    </tbody>
+						</table>
+					    <!-- 페이징처리 시작 -->
+					    <div th:if="${!paging7.isEmpty()}">
+							
+					        <ul class="pagination justify-content-center">
+					            <li class="page-item" th:classappend="${!paging7.hasPrevious} ? 'disabled'">
+					                <a class="page-link"
+					                    th:href="@{|?page7=${paging7.number-1}#div3|}">
+					                    <span>이전</span>
+					                </a>
+					            </li>
+					            <li th:each="page7: ${#numbers.sequence(0, paging7.totalPages-1)}"
+					            	th:if="${page7 >= paging7.number-2 and page7 <= paging7.number+2}"
+					                th:classappend="${page7 == paging7.number} ? 'active'" 
+					                class="page-item">
+					                <a th:text="${page7}" class="page-link" th:href="@{|?page7=${page7}#div3|}"></a>
+					               
+					               
+					            </li>
+					            <li class="page-item" th:classappend="${!paging7.hasNext} ? 'disabled'">
+					                <a class="page-link" th:href="@{|?page7=${paging7.number+1}#div3|}">
+					                    <span>다음</span>
+					                </a>
+					            </li>
+					        </ul>
+					    </div>
+					    <!-- 페이징처리 끝 -->
+						<a th:href="@{/recommendcourse/create7}" class="btn btn-secondary">후기등록</a>
+					</div>
+					
+					
+					
+				</div><hr><br>
+				
+				
+			
+				
+			
+			</div>
+	
+
+	
+<script type="text/javascript" th:src="@{/rcm/rcm.js}"></script>
+</div>
+</body>
+</html>

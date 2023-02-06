@@ -1,0 +1,316 @@
+<html layout:decorate="~{layout}">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/rcm/rcm.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<div layout:fragment="content">
+
+<div class="rcm-area">
+	<h1 style="padding-left:15px; padding-top:60px;">추천코스 - 커플코스</h1>
+	<hr>
+	
+	<div class="rcm-area02">
+		<div class="rcm-side">
+			<div class="rcm-side02">
+
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/couple'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">커플</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/family'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">가족</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/restaurant'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">맛집</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/nature'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">자연</div>
+			</div>
+		</div>
+		
+		<div class="rcm-content">
+				<div class="rcm-boxalign">
+				
+					<div class="rcm-content02" id="c1">
+						<div class="rcm-textTitle">
+							하늘공원
+						</div>
+					</div><br>
+					
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									
+										<div class="swiper-slide"><img  th:src="@{/img/rcmcourse/rcmCouple/하늘공원1.jpg}"   /></div>
+										<div class="swiper-slide"><img  th:src="@{/img/rcmcourse/rcmCouple/하늘공원2.jpg}"  /></div>
+										<div class="swiper-slide"><img  th:src="@{/img/rcmcourse/rcmCouple/하늘공원3.jpg}"  /></div>
+										<div class="swiper-slide"><img  th:src="@{/img/rcmcourse/rcmCouple/하늘공원4.jpg}"  /></div>
+										<div class="swiper-slide"><img  th:src="@{/img/rcmcourse/rcmCouple/하늘공원5.jpg}"  /></div>
+									
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+						
+						
+						<div class="rcm-text">2002년 제 17회 월드컵축구대회를 기념하여 난지도 제 2쓰레기매립지에 조성된 공원</div>
+						<div class="rcm-text">하늘공원 가는길에 위치한 메타세콰이아 길은 하늘로 길게 뻗은 나무들이 서울에서는 보기힘든 시원함을 연출해준다. 특히 메타세콰이어 길은 신혼부부가 웨딩화보촬영을 올 만큼 커플들이 사진찍기에 좋은 명소이다.</div>
+						<div class="rcm-text">매년 가을 억새축제가 열리는 사진 명소로도 유명하다. </div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:GetShow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide" class="hidecontent">
+								<img style="max-width:100%;" th:src="@{/img/rcmcourse/rcmDetail/c1.png}"/>
+							</div>
+						</div>
+						
+						<hr>
+					<div class="container pt-2" id="replace">
+					
+					<table class="table" style="border-left: none; border-right: none;" id="rpcontent">
+				    <thead>
+				        <tr>
+				            <th style="width: 80px;">별점</th>
+				            <th style="width: 120px;">닉네임</th>
+				            <th>후기</th>
+				        	<th style="width: 150px;">작성일자</th>
+				
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr th:each="review2, loop : ${paging2}">
+						    <td th:text="${review2.reviewStar2}"></td>
+				            <td style="width: 120px;" th:text="${review2.id2}"></td>
+				            <td th:text="${review2.reviewContents2}"></td>
+				            <td style="width: 150px;" th:text="${#temporals.format(review2.createDate2, 'yyyy-MM-dd HH:mm')}"></td>
+				        </tr>
+				    </tbody>
+					</table>
+				    <!-- 페이징처리 시작 -->
+				    <div id="rpcontent" th:if="${!paging2.isEmpty()}">
+						
+				        <ul class="pagination justify-content-center">
+				            <li class="page-item" th:classappend="${!paging2.hasPrevious} ? 'disabled'">
+				                <a class="page-link"
+				                    th:href="|javascript:ajaxpage('${paging2.number -1}')|">
+				                    <span>이전</span>
+				                </a>
+				            </li>
+				            <li th:each="page2: ${#numbers.sequence(0, paging2.totalPages-1)}"
+				            	th:if="${page2 >= paging2.number-2 and page2 <= paging2.number+2}"
+				                th:classappend="${page2 == paging2.number} ? 'active'" 
+				                class="page-item">
+				                <a th:text="${page2}" class="page-link" id="ajaxt" th:href="|javascript:ajaxpage('${page2}')|"></a>
+				               
+				               
+				            </li>
+				            <li class="page-item" th:classappend="${!paging2.hasNext} ? 'disabled'">
+				                <a class="page-link" th:href="|javascript:ajaxpage('${paging2.number +1}')|">
+				                    <span>다음</span>
+				                </a>
+				            </li>
+				        </ul>
+				    </div>
+				    <!-- 페이징처리 끝 -->
+					<a id="rpcontent" th:href="@{/recommendcourse/create2}" class="btn btn-secondary">후기등록</a>
+					</div>
+	
+					</div>
+				</div>
+				
+				<hr><br>
+				
+				<div class="rcm-boxalign">
+				<div class="rcm-content02" id="c2">
+					<div class="rcm-textTitle">
+						안양천 벚꽃길
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/안양천1.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/안양천2.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/안양천3.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/안양천4.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/안양천5.jpg}"  /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+
+						<div class="rcm-text">안양천은 한강의 지류로 안양시, 광명시, 서울 금천구, 구로구 , 양천구, 영등포구를 지나 성산대교 서쪽에서 한강에 합류하는 하천</div>
+						<div class="rcm-text">안양천 벚꽃길은 서울에서 가장 긴 벚꽃길로, 봄철이면 길게 조성된 제방로를 따라 여유롭게 산책할 수 있는 서울 벚꽃 명소이다.</div>
+						<div class="rcm-text">하천을 따라 길이 만들어졌기에 대부분의 산책로가 평지며 남녀노소 할것 없이 모두 걷기 편하게 조성되어있고, 근처에 오목교역과 양평역이 있어 교통편도 좋다.</div>
+						<div class="rcm-text">따뜻해지는 봄에 사랑하는 사람과 함께 걸어보는것을 추천</div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:Getshow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide2" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/c2.png}"/>
+							</div>
+						</div>
+						
+						
+						<hr>
+
+						<div id="div2"></div>
+						<table class="table" style="border-left: none; border-right: none;">
+					    <thead>
+					        <tr>
+					            <th style="width: 80px;">별점</th>
+					            <th style="width: 120px;">닉네임</th>
+					            <th>후기</th>
+					        	<th style="width: 150px;">작성일자</th>
+					
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr th:each="review3, loop : ${paging3}">
+							    <td style="width: 80px;" th:text="${review3.reviewStar3}"></td>
+					            <td style="width: 120px;" th:text="${review3.id3}"></td>
+					            <td th:text="${review3.reviewContents3}"></td>
+					            <td style="width: 150px;" th:text="${#temporals.format(review3.createDate3, 'yyyy-MM-dd HH:mm')}"></td>
+					        </tr>
+					    </tbody>
+						</table>
+					    <!-- 페이징처리 시작 -->
+					    <div th:if="${!paging3.isEmpty()}">
+					        <ul class="pagination justify-content-center">
+					            <li class="page-item" th:classappend="${!paging3.hasPrevious} ? 'disabled'">
+					                <a class="page-link"
+					                    th:href="@{|?page3=${paging3.number-1}#div2|}">
+					                    <span>이전</span>
+					                </a>
+					            </li>
+					            <li th:each="page3: ${#numbers.sequence(0, paging3.totalPages-1)}"
+					            	th:if="${page3 >= paging3.number-2 and page3 <= paging3.number+2}"
+					                th:classappend="${page3 == paging3.number} ? 'active'" 
+					                class="page-item">
+					                <a th:text="${page3}" class="page-link" th:href="@{|?page3=${page3}#div2|}"></a>
+					            </li>
+					            <li class="page-item" th:classappend="${!paging3.hasNext} ? 'disabled'">
+					                <a class="page-link" th:href="@{|?page3=${paging3.number+1}#div2|}">
+					                    <span>다음</span>
+					                </a>
+					            </li>
+					        </ul>
+					    </div>
+					    <!-- 페이징처리 끝 -->
+						<a th:href="@{/recommendcourse/create3}" class="btn btn-secondary">후기등록</a>
+						</div>
+					</div>
+
+		
+			<hr> <br>
+				
+				<div class="rcm-boxalign">
+				<div class="rcm-content02" id="c3">
+					<div class="rcm-textTitle">
+						올림픽 공원
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+								<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/올림픽공원1.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/올림픽공원2.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/올림픽공원3.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/올림픽공원4.jpg}"  /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmCouple/올림픽공원5.jpg}"  /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+						
+						<div class="rcm-text">1988년 하계 올림픽 개최지로 서울특별시가 유치 확정됨에 따라 1984년 착공을 시작해 1986년 공식 개장된 공원이다.</div>
+						<div class="rcm-text">올림픽 공원은 세계 5대 조각공원중 하나로 다양한 조각작품들을 구경할수 있고, 사계절 어느 구간에 가더라도 이쁜 경치를 자랑한다.</div>
+						<div class="rcm-text">특히 올림픽 공원에서 유명한 6경 나홀로 나무는 매해 사계절 내내 많은 커플들의 사진 촬영 장소로도 유명한데 넓은 들판에 혼자 외롭게 서있는 나무와 파란 하늘은 어떻게 찍어도 멋있는 사진이 나올수 있게 해준다.</div>
+						<div class="rcm-text">이쁜 커플사진을 찍고싶은 사람에게 추천</div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:getshow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide3" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/c3.png}"/>
+							</div>
+						</div>
+
+
+					
+			<div id="div3"></div>
+			<hr>
+			<div class="container my-3">
+				<table class="table" style="border-left: none; border-right: none;">
+			    <thead>
+			        <tr>
+			            <th style="width: 80px;">별점</th>
+			            <th style="width: 120px;">닉네임</th>
+			            <th>후기</th>
+			        	<th style="width: 150px;">작성일자</th>
+			
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="review4, loop : ${paging4}">
+					    <td style="width: 80px;" th:text="${review4.reviewStar4}"></td>
+			            <td style="width: 120px;" th:text="${review4.id4}"></td>
+			            <td th:text="${review4.reviewContents4}"></td>
+			            <td style="width: 150px;" th:text="${#temporals.format(review4.createDate4, 'yyyy-MM-dd HH:mm')}"></td>
+			        </tr>
+			    </tbody>
+				</table>
+			    <!-- 페이징처리 시작 -->
+			    <div th:if="${!paging4.isEmpty()}">
+			        <ul class="pagination justify-content-center">
+			            <li class="page-item" th:classappend="${!paging4.hasPrevious} ? 'disabled'">
+			                <a class="page-link"
+			                    th:href="@{|?page4=${paging4.number-1}#div3|}">
+			                    <span>이전</span>
+			                </a>
+			            </li>
+			            <li th:each="page4: ${#numbers.sequence(0, paging4.totalPages-1)}"
+			          		th:if="${page4 >= paging4.number-2 and page4 <= paging4.number+2}"
+			                th:classappend="${page4 == paging4.number} ? 'active'" 
+			                class="page-item">
+			                <a th:text="${page4}" class="page-link" th:href="@{|?page4=${page4}#div3|}"></a>
+			            </li>
+			            <li class="page-item" th:classappend="${!paging4.hasNext} ? 'disabled'">
+			                <a class="page-link" th:href="@{|?page4=${paging4.number+1}#div3|}">
+			                    <span>다음</span>
+			                </a>
+			            </li>
+			        </ul>
+			    </div>
+			    <!-- 페이징처리 끝 -->
+				<a th:href="@{/recommendcourse/create4}" class="btn btn-secondary">후기등록</a>
+			</div>
+			
+					
+				</div><hr><br>
+			
+				
+		
+			</div>
+
+
+
+				</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/rcm/rcm.js}"></script>
+</div>
+</body>
+</html>

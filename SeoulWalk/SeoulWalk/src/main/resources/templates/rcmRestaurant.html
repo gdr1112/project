@@ -1,0 +1,239 @@
+<html layout:decorate="~{layout}">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/rcm/rcm.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="rcm-area">
+	<h1 style="padding-left:15px; padding-top:60px;">추천코스 - 맛집코스</h1>
+	<hr>
+	
+	
+	<div class="rcm-area02">
+		<div class="rcm-side">
+			<div class="rcm-side02">
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/couple'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">커플</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/family'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">가족</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/restaurant'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">맛집</div><hr>
+				<div class="rcmnav" style="cursor:pointer;" onClick="location.href='/recommendcourse/nature'" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">자연</div>
+			</div>
+		</div>
+		
+		<div class="rcm-content">		
+			<div class="rcm-boxalign">
+			
+				<div class="rcm-content02" id="r1">
+					<div class="rcm-textTitle">
+						망리단길
+					</div>
+				</div><br>
+				
+				<div class="rcm-content03">
+					<div class="SceneryImg">
+						<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길1.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길9.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길8.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길5.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길6.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/망리단길7.jpg}" /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+						</div>
+					</div>
+					
+					<div class="rcm-text">망원동 + 경리단길 의 합성어로 망원동에 찾아오는 유동인구가 늘어나며 상권이 형성된 길이다.</div>
+					<div class="rcm-text">"나혼자산다", "수요미식회" 등 각종 TV프로그램과 SNS에 소개되면서 각종카페와 편집샵, 식당들이 즐비하게 늘어났다.</div>
+					<div class="rcm-text">다양한 국적의 식당이 있으며, 여러가지 메뉴보다는 주력 메뉴 몇 가지만 판매하는 곳이 많다.</div>
+					<div class="rcm-text">골목을 걸으며 다양한 음식을 맛보고싶은 사람에게 추천</div>
+					
+					<div class="rcm-detail">
+						<a href="javascript:GetShow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+						추천 코스 경로 보기</a>
+						<div id="hide" class="hidecontent">
+							<img th:src="@{/img/rcmcourse/rcmDetail/r1.png}"/>
+						</div>
+					</div>
+						
+					<div class="rcm-c">
+					<a href="https://www.mangoplate.com/top_lists/3091_manglidangil" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+					망리단길 맛집 추천 링크</a>
+					</div>					
+
+					
+
+
+					<hr>
+					
+					<div class="container my-3" id="div1">
+					<table class="table" style="border-left: none; border-right: none;">
+						
+				    <thead>
+				        <tr>
+				            <th style="width: 80px;">별점</th>
+				            <th style="width: 120px;">닉네임</th>
+				            <th>후기</th>
+				        	<th style="width: 150px;">작성일자</th>
+				
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr th:each="review8, loop : ${paging8}">
+						    <td style="width: 80px;" th:text="${review8.reviewStar8}"></td>
+				            <td style="width: 120px;" th:text="${review8.id8}"></td>
+				            <td th:text="${review8.reviewContents8}"></td>
+				            <td style="width: 150px;" th:text="${#temporals.format(review8.createDate8, 'yyyy-MM-dd HH:mm')}"></td>
+				        </tr>
+				    </tbody>
+					</table>
+				    <!-- 페이징처리 시작 -->
+				    <div th:if="${!paging8.isEmpty()}">
+						
+				        <ul class="pagination justify-content-center">
+				            <li class="page-item" th:classappend="${!paging8.hasPrevious} ? 'disabled'">
+				                <a class="page-link"
+				                    th:href="@{|?page8=${paging8.number-1}#div1|}">
+				                    <span>이전</span>
+				                </a>
+				            </li>
+				            <li th:each="page8: ${#numbers.sequence(0, paging8.totalPages-1)}"
+				            	th:if="${page8 >= paging8.number-2 and page8 <= paging8.number+2}"
+				                th:classappend="${page8 == paging8.number} ? 'active'" 
+				                class="page-item">
+				                <a th:text="${page8}" class="page-link" th:href="@{|?page8=${page8}#div1|}"></a>
+				               
+				               
+				            </li>
+				            <li class="page-item" th:classappend="${!paging8.hasNext} ? 'disabled'">
+				                <a class="page-link" th:href="@{|?page8=${paging8.number+1}#div1|}">
+				                    <span>다음</span>
+				                </a>
+				            </li>
+				        </ul>
+				    </div>
+				    <!-- 페이징처리 끝 -->
+					<a th:href="@{/recommendcourse/create8}" class="btn btn-secondary">후기등록</a>
+					</div>
+					
+				</div>
+			</div>
+				
+				<div class="rcm-boxalign">
+				<div class="rcm-content02" id="r2">
+					<div class="rcm-textTitle">
+						북한산 둘레길
+					</div>
+				</div><br>
+					<div class="rcm-content03">
+						<div class="SceneryImg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/북한산.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/북한산1.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/북한산2.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/북한산8.jpg}" /></div>
+									<div class="swiper-slide"><img th:src="@{/img/rcmcourse/rcmRes/북한산6.jpg}" /></div>
+								</div>
+								<!-- 네비게이션 -->
+								<div class="swiper-button-next swiper-button-black"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+								<div class="swiper-button-prev swiper-button-black"></div><!-- 이전 버튼 -->
+								<!-- 페이징 -->
+								<div class="swiper-pagination swiper-pagination-black"></div>
+							</div>
+						</div>
+
+						<div class="rcm-text">서울특별시 북부와 경기도 고양시의 경계에 위치한 북한산.</div>
+						<div class="rcm-text">백두산, 지리산, 금강산, 묘향산과 함께 대한민국 오악에 포함되는 명산인 북한산은 서울 근교의 산중에서 가장 높고, 산세가 웅장하여 예로부터 서울의 진산으로 불렸다.</div>
+						<div class="rcm-text">서울둘레길 8코스는 이러한 북한산을 통과하는 코스로 이루어져있어, 북한산과 밀접해있는 맛집을 소개한다.</div>
+						<div class="rcm-text">자연의 경치를 감상할 수 있는 맛집을 찾는 사람에게 추천</div>
+						
+						<div class="rcm-detail">
+							<a href="javascript:Getshow()" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+							추천 코스 경로 보기</a>
+							<div id="hide2" class="hidecontent">
+								<img th:src="@{/img/rcmcourse/rcmDetail/r2.png}"/>
+							</div>
+						</div>
+							
+						<div class="rcm-c">
+						<a href="https://www.mangoplate.com/top_lists/1865_bukhansan" class="rcm-c" onmouseover="this.style.color='#1ABC9C'" onmouseout="this.style.color='black'">
+						북한산 둘레길 맛집 추천 링크</a>
+						</div>	
+						
+
+					<hr>
+			
+				<div class="container my-3" id="div2">
+				<table class="table" style="border-left: none; border-right: none;">
+					
+			    <thead>
+			        <tr>
+			            <th style="width: 80px;">별점</th>
+			            <th style="width: 120px;">닉네임</th>
+			            <th>후기</th>
+			        	<th style="width: 150px;">작성일자</th>
+			
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:each="review9, loop : ${paging9}">
+					    <td style="width: 80px;" th:text="${review9.reviewStar9}"></td>
+			            <td style="width: 120px;" th:text="${review9.id9}"></td>
+			            <td th:text="${review9.reviewContents9}"></td>
+			            <td style="width: 150px;" th:text="${#temporals.format(review9.createDate9, 'yyyy-MM-dd HH:mm')}"></td>
+			        </tr>
+			    </tbody>
+				</table>
+			    <!-- 페이징처리 시작 -->
+			    <div th:if="${!paging9.isEmpty()}">
+					
+			        <ul class="pagination justify-content-center">
+			            <li class="page-item" th:classappend="${!paging9.hasPrevious} ? 'disabled'">
+			                <a class="page-link"
+			                    th:href="@{|?page9=${paging9.number-1}#div2|}">
+			                    <span>이전</span>
+			                </a>
+			            </li>
+			            <li th:each="page9: ${#numbers.sequence(0, paging9.totalPages-1)}"
+			            	th:if="${page9 >= paging9.number-2 and page9 <= paging9.number+2}"
+			                th:classappend="${page9 == paging9.number} ? 'active'" 
+			                class="page-item">
+			                <a th:text="${page9}" class="page-link" th:href="@{|?page9=${page9}#div2|}"></a>
+			               
+			               
+			            </li>
+			            <li class="page-item" th:classappend="${!paging9.hasNext} ? 'disabled'">
+			                <a class="page-link" th:href="@{|?page9=${paging9.number+1}#div2|}">
+			                    <span>다음</span>
+			                </a>
+			            </li>
+			        </ul>
+			    </div>
+			    <!-- 페이징처리 끝 -->
+				<a th:href="@{/recommendcourse/create9}" class="btn btn-secondary">후기등록</a>
+				</div>
+
+							
+						
+					</div>
+				</div>
+				
+			
+			</div>
+		</div>
+</div>
+	
+
+	
+<script type="text/javascript" th:src="@{/rcm/rcm.js}"></script>
+</div>
+</body>
+</html>

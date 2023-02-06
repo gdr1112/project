@@ -1,0 +1,284 @@
+<html layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" th:href="@{/coursestyle.css}">
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z259xu45mt"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>6코스 경로</title> 
+</head>
+<body>
+<div layout:fragment="content" class="container my-5">   
+
+	<div class="coursetext">	
+		<div class="coursetextSubText">서울 강서구ㆍ구로구ㆍ금천구ㆍ영등포구</div>
+		<h1 class="coursetextTitle">서울둘레길 6코스 안양천·한강코스</h1>
+		<div class="coursetextSubText">길이 18.2km ㆍ 소요시간 4시간 30분 ㆍ 난이도 초급</div>
+	</div><br><br>
+	
+	<div class="content2">
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+		<div class="slidewrap">
+			
+			<ul style="z-index: 0;" class="slidelist">
+				<!-- 슬라이드 영역 -->
+				<li class="slideitem">
+					<a>
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/6-1.jpg}" />
+					
+					
+					</a>
+				</li>
+				<li class="slideitem">
+					<a>
+						
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/6-2.jpg}" />
+					
+					</a>
+				</li>
+				<li class="slideitem">
+					<a>
+						
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/6-3.jpg}" />
+				
+					</a>
+				</li>
+				<!-- 좌,우 슬라이드 버튼 -->
+				<div class="slide-control">
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide03" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide02" class="right"></label>
+					</div>
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide01" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide03" class="right"></label>
+					</div>
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide02" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide01" class="right"></label>
+					</div>
+				</div>
+	
+			</ul>
+			<!-- 페이징 -->
+			<ul class="slide-pagelist">
+				<li><label for="slide01"></label></li>
+				<li><label for="slide02"></label></li>
+				<li><label for="slide03"></label></li>
+			</ul>
+		</div>	
+	</div>
+	</div>
+	
+	<div id="map" style="width:100%;height:400px; z-index: 0;"></div>
+	<br><br>
+	<H1 class="coursetextTitle">코스소개</H1><br><br><hr>
+	
+	<div class="coursetextSubText2">코스개요</div><br>
+	<div class="coursetextSubText3">
+		<div>- 석수역에서 출발해 안양천, 한강을 따라 걸어 가양역에 도착하는 코스</div>
+		<div>- 지하철역이 곳곳에 위치하고 있어 대중교통의 접근이 편리하고, 전 구간이 평탄한 지형으로 수월한 트레킹이 가능</div>
+		<div>- 서울둘레길 중 유일하게 야간이용이 가능하며, 계절별로 다양하게 변하는 아름다운 모습을 만끽할 수 있음</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">관광포인트</div><br>
+	<div class="coursetextSubText3">
+		<div>- 연못 주변에 180개의 수중등과 투광등을 설치해놓아 밤이면 아름다운 야경이 연출되는 '양화교폭포'</div>
+		<div>- 육상 경기, 축구 경기, 아마추어 야구 경기, 빙상 경기, 아이스발레 등의 행사가 개최되는 '목동 종합운동장'</div>
+		<div>- 봄이면 봄꽃으로 물들며 하얀 벚꽃비를 맞으며 걸을 수 있는 '안양천길'</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">여행자 정보</div><br>
+	<div class="coursetextSubText3">
+		<div>- 지하철 1호선 석수역 시점 시작</div>
+		<div>- 거리는 18km로 긴 편이나, 평지를 걷기 때문에 서울 둘레길중 가장 빠른 완주가 가능</div>
+		<div>- 서울둘레길안내센터에서 완주증을 받을 수 있음</div>
+	</div><br><br><br>
+	
+	<H1 class="coursetextTitle">주요 관광지</H1><br><br><hr>
+	<div class="content2">
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/황금내근린공원.jpg}" /><br/><b>황금내근린공원</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+		            <div>
+						넓이 2만 2,002㎡로, 1993년 11월 1일 개원하였다.
+		            </div><br>
+		             <div>
+						 서울 올림픽대로를 따라 길게 뻗어 있으며 올림픽대로와 맞닿는 면에는 높은 펜스가 있다. 농구장·테니스장·배드민턴장 ·소운동장 등의 체육공간과 화장실·정자·벤치 등이 있다.
+		            </div><br>
+		            <div>
+						스트로브잣나무·은행나무·벚나무·느티나무 등이 있고, 나무 사이로 700m의 탄성고무산책로가 있어 조깅하거나 산책하기에 좋다.
+		            </div>
+	            </div>
+	          </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/고척스카이돔.jpg}" /><br/><b>고척스카이돔</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+		            <div>
+						서울특별시 구로구 고척동에 있는 대한민국 최초의 돔형 야구장으로 키움 히어로즈가 2016 시즌부터 사용중인 홈 구장이다.
+		            </div><br>
+		            <div>
+						바람, 비, 미세먼지, 계절 등의 외부 환경의 영향을 받지 않는다. 태풍 정도를 제외하면 사실상 영향이 없다고 보면 된다. 한국의 기후 특성상 장마철인 한여름에 매우 잦은 우천취소가 없다는 것이 가장 큰 특징이다. 
+		            </div><br>
+		            <div>
+						이밖에도 LED를 전체 시설에 반영하여 에너지 소비를 최소화시킬 수 있는 친환경 건축물로 시공하고 있으며, 경기장 내에 수영장, 헬스장 등의 체육 시설과 함께 콘서트를 비롯한 문화 행사가 가능하도록 인프라를 구축하고 있다.
+		            </div>
+	            </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/양화교폭포.jpg}" /><br/><b>양화교폭포</b></span></div>
+	          <div class="faq-box__answer">
+				  <div class="faq-box__answer01">
+		              <div>
+						  양화대교를 건너 김포로 가는 길목인 양화교 앞에 자리한 양화교 인공폭포는 높이 15m, 길이 98m의 폭포이다.
+		              </div><br>
+					  <div>
+						  물줄기 높이 12m, 폭 15m의 주폭포를 비롯해서, 6개의 폭포수가 힘차게 내려온다. 폭포연못 주변에 180개의 수중등과 투광등을 설치하여 야경이 아름답다.
+		              </div><br>
+		  			  <div>
+						  폭포 주변에는 녹지대가 만들어져 시민공원으로 이용되고 있으며 특히 김포공항에서 시내로 들어오는 내국인과 외국인들에게 서울의 아름다운 첫인상을 심어주는 곳이다.
+		              </div>
+	              </div><br>
+	
+	          </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/안양천벚꽃길.jpg}" /><br/><b>안양천 벚꽃길</b></span></div>
+	          <div class="faq-box__answer">
+				  <div class="faq-box__answer01">
+		              <div>
+						  벚꽃길 명소로 이미 많이 알려져있는 안양천 벚꽃길은 안양천 둔치와 함께 벚꽃을 감상하며 산책하기 좋은 장소로 손꼽힌다.
+		              </div><br>
+		              <div>
+						  현재 안양천 제방 산책로에는 약 900주의 왕벚나무가 벚꽃을 피우고 있으며, 금낭화, 할미꽃 등 우리나라 고유의 꽃으로 구성된 화단과 원추리, 갯버들, 꽃창포 등의 다양한 수변 식물을 만날 수 있는 자연학습장이 조성돼 있다.
+		              </div><br>
+					  <div>
+						  매년 봄이오는 시기에는 어른아이 할 것 없이 모두들 나들이를 즐기는 모습을 볼 수 있다.
+		              </div>
+	              </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	</div><br><br>
+	
+	<H1 class="coursetextTitle">주요지점 및 편의시설</H1><br><br>
+	<hr class="hrheight"><br>
+	<b class="coursetextSubText2">코스 경로</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">석수역-안양천-구일역-한강-가양역</b><br><hr>
+	<b class="coursetextSubText2">식수</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">양화교폭포와 한강코스 곳곳에 식수대 다수 위치</b><br><hr>
+	<b class="coursetextSubText2">매점</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">역사와 한강공원 등 위치</b><br><hr>
+	<br><br><br><br><br><br>
+	
+	<script>
+	function FaqBox__init() {
+	  $('.faq-box > ul > li').click(function() {
+	    let $this = $(this);
+	    
+	    $this.siblings('.hover').find(' > .faq-box__answer').stop().slideUp(300); 
+	    $this.siblings('.hover').removeClass('hover');
+	    
+	    if ( $this.hasClass('hover') ) {
+	      $this.find(' > .faq-box__answer').stop().slideUp(300); 
+	      $this.removeClass('hover');
+	    }
+	    else {
+	      $this.find(' > .faq-box__answer').stop().slideDown(300); 
+	      $this.addClass('hover');
+	    }
+	  });
+	  
+	  $('.faq-box__answer').click(function() {
+	    return false;
+	  });
+	}
+	
+	FaqBox__init();	
+		
+	</script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z259xu45mt"></script>
+	<script th:inline="javascript" id="data">
+	let cs =[[${cs}]];
+	let jsoncs = JSON.parse(cs);
+	let polylinePath = [];
+	let spltjson = jsoncs[0].split(",");
+	for(let i = 0; i<jsoncs.length;i++){
+		
+		let spltjson = jsoncs[i].split(",");
+		
+		polylinePath.push(new naver.maps.LatLng(parseFloat(spltjson[0]), parseFloat(spltjson[1])));
+	}
+	</script>
+	
+	<script id="code">
+	    //지도 표시
+	    var map = new naver.maps.Map('map', {
+	        zoom: 11,
+	        center: new naver.maps.LatLng(37.503038, 126.880992),
+	        zoomControl: true,
+	        scrollWheel: false
+	    });
+	
+	    //위의 배열을 이용해 라인 그리기
+	    var polyline = new naver.maps.Polyline({
+	        path: polylinePath,      //선 위치 변수배열
+	        strokeColor: '#FF0000', //선 색 빨강 #빨강,초록,파랑
+	        strokeOpacity: 0.6, //선 투명도 0 ~ 1
+	        strokeWeight: 5,   //선 두께
+	        map: map           //오버레이할 지도
+	    });
+		
+		
+		// 시작지점 마커
+		 var marker = new naver.maps.Marker({
+	        position: polylinePath[0], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+		
+	    // 도착지점 마커
+	    var marker = new naver.maps.Marker({
+	        position: polylinePath[polylinePath.length-1], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+	    
+	    
+	</script>
+</div> 
+</body> 
+</html>

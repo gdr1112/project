@@ -1,0 +1,283 @@
+<html layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" th:href="@{/coursestyle.css}">
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z259xu45mt"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>7코스 경로</title> 
+</head>
+<body>
+<div layout:fragment="content" class="container my-5">
+
+	<div class="coursetext">	
+		<div class="coursetextSubText">서울 마포구ㆍ은평구</div>
+		<h1 class="coursetextTitle">서울둘레길 7코스 봉산·앵봉산코스</h1>
+		<div class="coursetextSubText">길이 16.8km ㆍ 소요시간 6시간 25분 ㆍ 난이도 중급</div>
+	</div><br><br>
+	
+	<div class="content2">
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked>
+		<input type="radio" name="slide" id="slide02">
+		<input type="radio" name="slide" id="slide03">
+		<div class="slidewrap">
+			
+			<ul style="z-index: 0;" class="slidelist">
+				<!-- 슬라이드 영역 -->
+				<li class="slideitem">
+					<a>
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/7-1.jpg}" />
+					
+					
+					</a>
+				</li>
+				<li class="slideitem">
+					<a>
+						
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/7-2.jpg}" />
+					
+					</a>
+				</li>
+				<li class="slideitem">
+					<a>
+						
+						<div class="textbox">
+	
+						</div>
+						<img th:src="@{/img/detail/7-3.jpg}" />
+				
+					</a>
+				</li>
+				<!-- 좌,우 슬라이드 버튼 -->
+				<div class="slide-control">
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide03" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide02" class="right"></label>
+					</div>
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide01" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide03" class="right"></label>
+					</div>
+					<div>
+						<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide02" class="left"></label>
+						<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide01" class="right"></label>
+					</div>
+				</div>
+	
+			</ul>
+			<!-- 페이징 -->
+			<ul class="slide-pagelist">
+				<li><label for="slide01"></label></li>
+				<li><label for="slide02"></label></li>
+				<li><label for="slide03"></label></li>
+			</ul>
+		</div>	
+	</div>
+	</div>
+	
+	<div id="map" style="width:100%;height:400px; z-index: 0;"></div>
+	
+	<br><br>
+	<H1 class="coursetextTitle">코스소개</H1><br><br><hr>
+	
+	<div class="coursetextSubText2">코스개요</div><br>
+	<div class="coursetextSubText3">
+		<div>- 가양역에서부터 출발하여 난지도 노을공원, 하늘공원을 통과하는 코스</div>
+		<div>- 봉산과 앵봉산은 수국사, 서오릉 등 역사적 유산이 많아 볼거리가 다양함</div>
+		<div>- 일부 경사지와 통과하기 어려운 곳은 정비가 잘 되어 있으므로 무난하게 트래킹할 수 있는 코스</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">관광포인트</div><br>
+	<div class="coursetextSubText3">
+		<div>- 서울에서 가장 아름다운 저녁노을을 볼 수 있는 문화예술공원 '노을공원'</div>
+		<div>- 난지천을 생태하천으로 복원하여 갈대가 우거지고 버드나무와 각종 식물들이 군락을 형성한 '난지천공원'</div>
+		<div>- 세조의 장남 의경세자의 극락왕생을 위해 경릉 동쪽에 정인사라는 이름으로 건립되었던 '수국사'</div>
+		<div>- 조선시대 왕실의 무덤으로 경릉, 창릉, 익릉, 명릉, 홍릉이 있는 '서오릉'</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">여행자 정보</div><br>
+	<div class="coursetextSubText3">
+		<div>- 지하철 9호선 가양역에서 시점 출발</div>
+		<div>- 코스 후반부가 비교적 어려운 등산코스로 페이스 조절이 필요함</div>
+		<div>- 서울둘레길안내센터에서 완주증을 받을 수 있음</div>
+	</div><br><br><br>
+	
+	<H1 class="coursetextTitle">주요 관광지</H1><br><br><hr>
+	<div class="content2">
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/난지한강공원.jpg}" /><br/><b>난지한강공원</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+		            <div>
+						홍제천교에서 난지천교 사이에 위치해 있고, 길이는 3.1㎞(약 770,000㎡)로 마포구 상암동에 위치하고 있다.
+		            </div><br>
+		             <div>
+						 한강르네상스 사업으로 새롭게 조성된 난지한강공원은 노을공원, 하늘공원과 연결되는 중앙연결브릿지, 평화의 공원 연결브릿지, 복합연결통로가 완공되어 공원 이용시민들의 접근성을 개선시켰다.
+		            </div><br>
+		            <div>
+						평화의 공원 연결브릿지 앞에 설치된 거울분수는 난지한강공원의 랜드마크 요소로 물을 뿜을 때마다 아름다운 풍경을 연출하여 일곱빛깔 무지개처럼 다양한 볼거리와 즐길거리를 제공한다. 여름철 이용할수 있는 강변물놀이장은 과거 강변에서 물놀이하던 추억을 되살리고자 최대수심 80㎝의 물놀이장공간을 조성하여 어린아이를 동반하여 가족과 즐길수 있는 시설이 설치되어있다.
+		            </div>
+	            </div>
+	          </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/수국사.jpg}" /><br/><b>수국사</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+		            <div>
+						서울시 은평구 구산동 314번지에 소재한 대한불교조계종 수국사는 오랜 역사를 가진 고찰이다.
+		            </div><br>
+		            <div>
+						세조 5년(1459) 맏아들 의경대왕이 요절하자, 고양 봉현 능을 건립하고 원찰(願刹)로 삼아 중창한 것이 정인사(正因寺)인데 이 정인사가 바로 수국사의 전신이며, 정인사는 119칸의 호화찬란한 대찰로 광릉의 봉선사와 맞먹을 만한 풍광이 뛰어난 명찰이었다고 한다.
+		            </div><br>
+		            <div>
+						현재 수국사에는 보물로 지정된 고려 목아미타불좌상(高麗 木阿彌陀佛坐像) 1점과 불화(아미타후불탱, 십육나한탱, 구품탱, 감로탱, 신중탱, 현왕탱) 6점이 남아있다.
+		            </div>
+	            </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/서울월드컵경기장.jpg}" /><br/><b>서울월드컵경기장</b></span></div>
+	          <div class="faq-box__answer">
+				  <div class="faq-box__answer01">
+		              <div>
+						  서울특별시 마포구 성산동에 위치한 축구장이다.
+		              </div><br>
+					  <div>
+						   2002 FIFA 월드컵 한국·일본을 위해 건설된 아시아에서 3번째 규모의 축구 전용구장이며, 현재 대한민국 축구 국가대표팀과 K리그1 FC 서울의 홈구장으로 사용되고 있다.
+		              </div><br>
+		  			  <div>
+							총 좌석수는 2014년 2월 테이블석을 설치하면서 기존 66,806석에서 102석이 줄어들어 66,704석이 되었으며 귀빈석 816석, 보도석 754석, 스카이 박스 75실(1실당 12-29명 수용)을 포함하고 있다.
+		              </div>
+	              </div>
+	
+	          </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/은평뉴타운.jpg}" /><br/><b>은평뉴타운</b></span></div>
+	          <div class="faq-box__answer">
+				  <div class="faq-box__answer01">
+		              <div>
+						  은평뉴타운은 도심에서 북서쪽으로 10km 떨어진 뉴타운으로 동쪽으로 북한산국립공원, 서쪽으로는 서오릉 자연공원, 남쪽으로는 갈현근린공원과 인접한다.
+		              </div><br>
+					  <div>
+						  구역 중앙에는 진관 근린공원이 자리잡고 있고, 북쪽으로 청정하천인 창릉천이 경기도와 시계를 이루고 있는 등 도시 내에서 자연 그대로를 느낄 수 있는 서울지역 최고의 자연경관을 유지하고 있다.
+		              </div>
+	              </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	</div><br><br>
+	
+	<H1 class="coursetextTitle">주요지점 및 편의시설</H1><br><br>
+	<hr class="hrheight"><br>
+	<b class="coursetextSubText2">코스 경로</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">가양역-노을공원-하늘공원-월드컵경기장-봉산-앵봉산-구파발역</b><br><hr>
+	<b class="coursetextSubText2">식수</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">없음</b><br><hr>
+	<b class="coursetextSubText2">매점</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">식당과 매점은 가양역 부근, 월드컵경기장 부근, 증산역 부근, 벌고개, 구파발역</b><br><hr>
+	<br><br><br><br><br><br>
+	
+	<script>
+	function FaqBox__init() {
+	  $('.faq-box > ul > li').click(function() {
+	    let $this = $(this);
+	    
+	    $this.siblings('.hover').find(' > .faq-box__answer').stop().slideUp(300); 
+	    $this.siblings('.hover').removeClass('hover');
+	    
+	    if ( $this.hasClass('hover') ) {
+	      $this.find(' > .faq-box__answer').stop().slideUp(300); 
+	      $this.removeClass('hover');
+	    }
+	    else {
+	      $this.find(' > .faq-box__answer').stop().slideDown(300); 
+	      $this.addClass('hover');
+	    }
+	  });
+	  
+	  $('.faq-box__answer').click(function() {
+	    return false;
+	  });
+	}
+	
+	FaqBox__init();	
+		
+	</script>
+	
+	<script th:inline="javascript" id="data">
+	let cs =[[${cs}]];
+	let jsoncs = JSON.parse(cs);
+	let polylinePath = [];
+	let spltjson = jsoncs[0].split(",");
+	for(let i = 0; i<jsoncs.length;i++){
+		
+		let spltjson = jsoncs[i].split(",");
+		
+		polylinePath.push(new naver.maps.LatLng(parseFloat(spltjson[0]), parseFloat(spltjson[1])));
+	}
+	</script>
+	
+	<script id="code">
+	    //지도 표시
+	    var map = new naver.maps.Map('map', {
+	        zoom: 12,
+	        center: new naver.maps.LatLng(37.604680, 126.886804),
+	        zoomControl: true,
+	        scrollWheel: false
+	    });
+	
+	    //위의 배열을 이용해 라인 그리기
+	    var polyline = new naver.maps.Polyline({
+	        path: polylinePath,      //선 위치 변수배열
+	        strokeColor: '#FF0000', //선 색 빨강 #빨강,초록,파랑
+	        strokeOpacity: 0.6, //선 투명도 0 ~ 1
+	        strokeWeight: 5,   //선 두께
+	        map: map           //오버레이할 지도
+	    });
+		
+		
+		// 시작지점 마커
+		 var marker = new naver.maps.Marker({
+	        position: polylinePath[0], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+		
+	    // 도착지점 마커
+	    var marker = new naver.maps.Marker({
+	        position: polylinePath[polylinePath.length-1], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+	    
+	    
+	</script>
+</div>
+</body>
+</html>

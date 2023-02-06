@@ -1,0 +1,59 @@
+<html layout:decorate="~{layout}">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/bbs.css}">
+</head>
+<div layout:fragment="content" class="container my-5">
+<div style = "padding-top:50px;">
+<h1 style="padding-top:15px; padding-bottom:15px; padding-left:15px;">소통 게시판</h1>
+<hr>
+
+<div class="bbscontent">
+
+	<div class="bbs-left">
+		<a th:href="@{/board/notice}" class="bbs-left-items">공지사항</a>
+		<hr>
+		<a th:href="@{/board/qna}" class="bbs-left-items">소통 게시판</a>
+		<hr>
+	</div>
+	
+	
+	<div class="bbs-right">
+	
+    <h2 class="my-3 border-bottom pb-2">질문등록</h2>
+    
+    <!-- CSRF -->
+    <form th:object="${questionForm}" method="post">
+    	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+        </div> 	
+    
+    	<!-- 템플릿 적용 -->
+        
+        <div class="mb-3">
+            <label for="subject" class="form-label">제목</label>
+            <input type="text" th:field="*{subject}" id="subject" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea th:field="*{content}" id="content" class="editor"></textarea>
+        </div>
+        <div style="display:flex; justify-content:end;">
+        	<input type="submit" value="저장하기" class="btn btn-success my-2">
+        </div>
+    </form>
+	<script type="text/javascript" th:src="@{/build/ckeditor.js}"></script>
+    <script>
+    	ClassicEditor
+    		.create(document.querySelector('.editor'))
+    		.catch( error =>{
+				console.error( error );
+			});
+    </script>
+
+	</div>
+</div>
+
+</div>
+</div>
+</html>

@@ -1,0 +1,120 @@
+<html layout:decorate="~{layout}">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/bbs.css}">
+</head>
+<div layout:fragment="content" class="container my-5">
+<div style = "padding-top:50px;">
+<h1 style="padding-top:15px; padding-bottom:15px; padding-left:15px;">공지사항</h1>
+<hr>
+
+<div class="bbscontent">
+
+	<!-- 왼쪽 영역 -->
+	<div class="bbs-left">
+		<a th:href="@{/board/notice}" class="bbs-left-items">공지사항</a>
+		<hr>
+		<a th:href="@{/board/qna}" class="bbs-left-items">소통 게시판</a>
+		<hr>
+	</div>
+	
+	<!-- 오른쪽 영역 -->
+	<div class="bbs-right">
+	
+	<!-- 테이블 상세 영역 -->
+	<div style = "padding-top : 20px; padding:10px;">
+    <table class="table">
+    <colgroup>
+    	<col class="width1">
+    	<col class="width2">
+    	<col class="width1">
+    	<col class="width2">
+    	<col class="width1">
+    	<col class="width1">
+    </colgroup>
+    <tbody>
+		<tr>
+			<th scope="row">
+				<span>제목</span>
+			</th>
+			<td colspan="5" th:text="${notice.subject}"></td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<span>작성자</span>
+			</th>
+			<td th:text="${notice.author.nickname}"></td>
+
+			<th scope="row">
+				<span>등록일</span>
+			</th>
+			<td th:text="${#temporals.format(notice.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+			<th scope="row">
+				<span>추천수</span>
+			</th>
+			<td th:text="${#lists.size(notice.voter)}"></td>
+		</tr>
+		<tr>
+			<td colspan="6" th:utext="${notice.content}"></td>
+		</tr>
+	</tbody>
+    </table>
+
+    
+    <span class="d-flex justify-content-between" >
+    	
+    	<!-- 수정일 표시 -->
+    	<span>
+    			<div th:if="${notice.modifyDate != null}"
+	     		 class="badge bg-light text-dark p-2 text-start">
+	        	<div class="mb-2">수정됨</div>
+	        	<div th:text="${#temporals.format(notice.modifyDate, 'yyyy-MM-dd HH:mm')}"></div>
+	   		</div>	  
+    	</span>
+    
+    
+    	<!-- 추천, 수정, 삭제 영역 -->  
+	    <span>
+		    <!-- 수정버튼 -->
+		    <a th:href="@{|/board/notice/modify/${notice.id}|}" 
+		    class="btn btn-sm btn-outline-secondary"
+		    sec:authorize="isAuthenticated()"
+		    th:if="${session.user != null and session.user['role'] == 'ROLE_ADMIN'}"
+		    th:text="수정"></a>  
+		    
+		    <!-- 삭제버튼 -->
+		    <a href="javascript:void(0);" 
+		    th:text="삭제"
+		    class="delete btn btn-sm btn-outline-secondary" 
+		    th:data-uri="@{|/board/notice/delete/${notice.id}|}"
+		    sec:authorize="isAuthenticated()"
+		    th:if="${session.user != null and session.user['role'] == 'ROLE_ADMIN'}"></a>
+		    
+	        <!-- 추천버튼 -->
+	        <a th:href="@{|/board/notice/vote/${notice.id}|}" class="btn btn-sm btn-outline-secondary">
+	            글 추천
+	        </a>	
+	    </span>
+	    
+    </span>
+
+
+	</div>
+
+</div>
+
+<script layout:fragment="script" type='text/javascript'>
+
+// 삭제 확인 알람
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+
+</script>
+</div>
+</div>
+</html>

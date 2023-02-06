@@ -1,0 +1,297 @@
+<html layout:decorate="~{layout}">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/ctest/slide.css}">
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+Kakao.init('39b4049e1049b0ff47d6738edcb2c49c');
+</script>
+</head>
+<body>
+<div layout:fragment="content">
+
+	<div style="width:100%; flex-direction: column; display:flex; align-items:center; margin-top:30px;">
+		<h1>테스트 결과</h1>
+		
+		<!-- 타임리프 조건문 -->
+		<div th:switch="${result}" style="width:100%; flex-direction: column; display:flex; align-items:center;">
+			<div style="margin-top: 10px;">
+				<span style="font-size:25px;">[[${result}]]</span>
+			</div>
+			
+			<!-- 커플 코스 -->
+			<div th:case="'하늘공원'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmCouple/하늘공원.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/couple#c1}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			<div th:case="'안양천 벚꽃길'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmCouple/안양천2.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/couple#c2}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			<div th:case="'올림픽 공원'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmCouple/올림픽공원2.jpg}">
+					</div>				
+				</div>			
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/couple#c3}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			
+			<!-- 가족 코스 -->
+			<div th:case="'예술의 전당'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmFamily/예술의전당5.jpg}">
+					</div>				
+				</div>				
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/family#f1}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>							
+			</div>
+			<div th:case="'양재시민의 숲'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmFamily/양재시민의숲9.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/family#f2}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>	
+			<div th:case="'선유도공원'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmFamily/선유도10.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/family#f3}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			
+			<!-- 맛집 코스 -->
+			<div th:case="'망리단길'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmRes/망리단길9.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/restaurant#r1}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			<div th:case="'북한산 둘레길'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmRes/북한산6.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/restaurant#r2}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			
+			<!-- 자연 코스 -->
+			<div th:case="'태릉 강릉'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmNature/태릉1.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/nature#n1}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+			<div th:case="'관악산'">
+				<div class="imgbox">
+					<div class="imgbox_child">
+						<img class="testimg"  th:src="@{/img/rcmcourse/rcmNature/관악산7.jpg}">
+					</div>				
+				</div>
+					<div style="flex-direction: column; display:flex; align-items:center;">
+						<a th:href="@{recommendcourse/nature#n2}">
+							<button class="result" type="button">코스 정보 보러가기</button>
+						</a>
+					</div>	
+					<div style="width:100%; display:flex; justify-content:center;">
+						<a th:href="@{roadtest}">
+							<button class="result" type="button">다시하기</button>
+						</a>
+					</div>			
+					<!-- sns공유 -->
+					<div style="width:100%; display:flex; justify-content:space-around; padding-top:50px;">
+						<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+						<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+						<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+					</div>						
+			</div>
+		</div>
+	</div>
+
+<script th:inline="javascript">
+
+// sns 공유 기능
+function shareTwitter(){
+	var sendText = "나만의 둘레길 유형 테스트";
+	var sendUrl = "https://seoulwalk.kro.kr/seoulwalktest/" + /*[[${result}]]*/ + "/";
+	window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+}
+
+function shareFacebook() {
+    var sendUrl = "https://seoulwalk.kro.kr/seoulwalktest/" + /*[[${result}]]*/ + "/";
+    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+}
+
+function shareKakao(){
+	var sendUrl = /*[[${result}]]*/;
+	
+	Kakao.Share.createDefaultButton({
+		container : "#btnKakao",
+		objectType: "feed",
+		content: {
+			title: "둘레길 유형 테스트",
+			description: "나에게 맞는 둘레길 코스는?",
+			imageUrl : "",
+			link:{
+				webUrl: "https://seoulwalk.kro.kr/seoulwalktest/" + sendUrl,
+				mobileWebUrl:"https://seoulwalk.kro.kr/seoulwalktest/" + sendUrl
+			}
+		}
+	});
+}
+</script>
+
+
+</div>
+</body>
+</html>

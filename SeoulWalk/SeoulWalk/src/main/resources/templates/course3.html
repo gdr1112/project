@@ -1,0 +1,294 @@
+<html layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" th:href="@{/coursestyle.css}">
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z259xu45mt"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>3코스 경로</title> 
+</head>
+<body>
+<div layout:fragment="content" class="container my-5">
+
+	<div class="coursetext">	
+		<div class="coursetextSubText">서울 강동구ㆍ송파구</div>
+		<h1 class="coursetextTitle">서울둘레길 3코스 고덕·일자산코스</h1>
+		<div class="coursetextSubText">길이 25.6km ㆍ 소요시간 8시간 50분 ㆍ 난이도 초급</div>
+	</div>
+	
+	<br><br>
+
+	<div class="content2">
+		<div class="section">
+			<input type="radio" name="slide" id="slide01" checked>
+			<input type="radio" name="slide" id="slide02">
+			<input type="radio" name="slide" id="slide03">
+			<div class="slidewrap">
+				
+				<ul style="z-index: 0;" class="slidelist">
+					<!-- 슬라이드 영역 -->
+					<li class="slideitem">
+						<a>
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/3-1.jpg}" />
+						
+						
+						</a>
+					</li>
+					<li class="slideitem">
+						<a>
+							
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/3-2.jpg}" />
+						
+						</a>
+					</li>
+					<li class="slideitem">
+						<a>
+							
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/3-3.jpg}" />
+					
+						</a>
+					</li>
+					<!-- 좌,우 슬라이드 버튼 -->
+					<div class="slide-control">
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide03" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide02" class="right"></label>
+						</div>
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide01" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide03" class="right"></label>
+						</div>
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide02" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide01" class="right"></label>
+						</div>
+					</div>
+		
+				</ul>
+				<!-- 페이징 -->
+				<ul class="slide-pagelist">
+					<li><label for="slide01"></label></li>
+					<li><label for="slide02"></label></li>
+					<li><label for="slide03"></label></li>
+				</ul>
+			</div>	
+		</div>
+	</div>
+
+	<div id="map" style="width:100%;height:400px; z-index: 0;"></div>
+	
+	<br><br>
+	
+	<H1 class="coursetextTitle">코스소개</H1><br><br><hr>
+	
+	<div class="coursetextSubText2">코스개요</div><br>
+	<div class="coursetextSubText3">
+		<div>- 광나루역에서 출발해 한강, 고덕산, 일자산, 성내천, 문정근린공원, 탄천을 경유해 수서역에 도착하는 코스</div>
+		<div>- 강길, 숲길, 하천길이 모두 포함되어 서울시의 자연경관을 보고 느낄 수 있는 최적의 코스</div>
+		<div>- 코스가 긴 편이나 비교적 평탄한 지형으로 수월한 산행이 가능하며, 주변의 역사문화</div>
+		<div>&nbsp&nbsp&nbsp&nbsp관광지가 다양하게 분포하고 있음</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">관광포인트</div><br>
+	<div class="coursetextSubText3">
+		<div>- 대규모 갈대군락지로 자연 그대로의 한강의 모습을 가장 잘 유지하고 있는 '한강공원 광나루지구'</div>
+		<div>- 기원전 4000∼3000년 무렵에 우리나라 신석기시대 사람들이 살았던 움집터 유적 '암사동선사주거지'</div>
+		<div>- 다양한 생태학습프로그램이 연중 운영하는 '길동생태공원'</div>
+		<div>- 야외조각공원을 비롯하여 88놀이마당, 음악 분수 등과 같은 휴식공간이 조성된 '올림픽공원'</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">여행자 정보</div><br>
+	<div class="coursetextSubText3">
+		<div>- 지하철 5호선 광나루역 2번 출입구</div>
+		<div>- 서울둘레길안내센터에서 완주증을 받을 수 있음</div>
+	</div><br><br><br>
+	
+	<H1 class="coursetextTitle">주요 관광지</H1><br><br><hr>
+	<div class="content2">
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/일자산도시자연공원.jpg}" /><br/><b>일자산도시자연공원</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+	            <div>
+					일자산은 강동구와 경기도 하남시 서부 등을 경계로 뻗어 있는 강동구의 최고봉으로 강동에서 가장 먼저 해가 뜬다. 
+	            </div><br>
+	             <div>
+					둔촌 이집 선생의 시비가 있으며 도시민에게 좋은 휴식공간이다.
+	            </div><br>
+	            <div>
+					이집선생은 고려말 공민왕 때의 충신으로, 당시 세도가였던 신돈의 모함으로 일자산 서남쪽에 토굴을 짓고 숨어 살았다.
+	            </div><br>
+	            <div>
+					그 고초를 잊지 않고자 호를 둔촌이라 바꿨으며 둔촌동이란 동네 이름은 이집선생의 호에서 따온 것이다.
+	            </div>
+	            </div>
+	          </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/길동생태공원.jpg}" /><br/><b>길동생태공원</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+	            <div>
+					길동생태공원은 여의도 샛강생태공원에 이어 국내에서 두 번째로 조성된 생태공원이다.
+	            </div><br>
+	            <div>
+					도심 속 생물에게 서식처를 제공하고 종 다양성을 높이기 위한 생태공간이자 자연 체험을 통해 환경의 이해와 중요성을 느낄 수 있는 곳이다.
+	            </div><br>
+	            <div>
+					멸종위기종, 국가보호종 27종, 서울시보호종 23종 등 2,800여종의 다양한 생물들이 서식하고 있으며 환경지표종인 반딧불이를 직접 만나 볼 수 있는 반딧불이체험관, 서울의 생태에 대한 정보가 전시된 길동생태문화센터 등이 위치하고 있다.
+	            </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	<div class="faq-box-content">
+	<section class="section section-faq">
+	  <div class="container mx-auto">
+	
+	    <div class="faq-box">
+	      <ul>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/올림픽공원.jpg}" /><br/><b>올림픽공원</b></span></div>
+	          <div class="faq-box__answer">
+				<div class="faq-box__answer01">
+	              <div>
+					  서울특별시 송파구 방이동 88번지에 있는 공원이다.
+	              </div><br>
+				  <div>
+					  1988 서울 올림픽 개최를 위해 서울시가 사업비 1823억 원을 들여 1986년 5월 28일 준공했다. 현재 서울특별시와 국민체육진흥공단이 소유하고 국민체육진흥공단과 한국체육산업개발이 관리운영하고 있다.
+	              </div><br>
+	  			  <div>
+					 사이클·역도·펜싱·수영·체조·테니스 등 6개의 경기장 등의 경기 시설과 소마미술관 등 다양한 문화 시설들이 함께 있다.
+	              </div><br>
+	              <div>
+					  올림픽 공원 건설 도중 발굴된 백제 유적지 몽촌토성은 공원 내에 자리하고 있다.
+	              </div>
+	             </div>
+	        </li>
+	        <li>
+	          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/성내천.jpg}" /><br/><b>성내천</b></span></div>
+	          <div class="faq-box__answer">
+				 <div class="faq-box__answer01">
+	              <div>
+					  성내천은 청량산에서 발원하여 몽촌토성과 풍납토성 사이를 돌아 한강으로 흘러드는 하천이다. 
+	              </div><br>
+				  <div>
+					  옛 성내리(현 성내동)를 관통하여 흘렀기 때문에 성내천이라 부른다. 도시화 과정에서 건천이 되어버린 하천에 한강물과 지하수를 끌어와 흐르게 하고, 나무와 풀을 심어 생태하천으로 되살렸다. 
+	              </div><br>
+	  			  <div>
+					  물에는 잉어가 떼 지어 올라오고 산책로와 자전거길은 한강까지 이어진다.
+	              </div>
+	             </div>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</section>
+	</div>
+	</div>
+
+	<br><br>
+
+	<H1 class="coursetextTitle">주요지점 및 편의시설</H1><br><br>
+	<hr class="hrheight"><br>
+	<b class="coursetextSubText2">코스 경로</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">광나루역-고덕산-일자산-성내천-탄천-수서역</b><br><hr>
+	<b class="coursetextSubText2">식수</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">광진교, 인라인스케이트장, 수영장, 테니스장, 축구장, 광나루지구 주차장, 암사동유적지 주차장,</b><br>
+	<b class="coursetextSubText4">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp샘터근린공원, 성내천수영장, 장지육교 근처</b><br><hr>
+	<b class="coursetextSubText2">매점</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">세븐일레븐 송파성내천점, 씨유 한강광나루1호점</b><br><hr>
+	<br><br><br><br><br><br>
+	
+	<script>
+	function FaqBox__init() {
+	  $('.faq-box > ul > li').click(function() {
+	    let $this = $(this);
+	    
+	    $this.siblings('.hover').find(' > .faq-box__answer').stop().slideUp(300); 
+	    $this.siblings('.hover').removeClass('hover');
+	    
+	    if ( $this.hasClass('hover') ) {
+	      $this.find(' > .faq-box__answer').stop().slideUp(300); 
+	      $this.removeClass('hover');
+	    }
+	    else {
+	      $this.find(' > .faq-box__answer').stop().slideDown(300); 
+	      $this.addClass('hover');
+	    }
+	  });
+	  
+	  $('.faq-box__answer').click(function() {
+	    return false;
+	  });
+	}
+	
+	FaqBox__init();	
+		
+	</script>	
+	
+	<script th:inline="javascript" id="data">
+	let cs =[[${cs}]];
+	let jsoncs = JSON.parse(cs);
+	let polylinePath = [];
+	let spltjson = jsoncs[0].split(",");
+	for(let i = 0; i<jsoncs.length;i++){
+		
+		let spltjson = jsoncs[i].split(",");
+		
+		polylinePath.push(new naver.maps.LatLng(parseFloat(spltjson[0]), parseFloat(spltjson[1])));
+	}
+	</script>
+	
+	<script id="code">
+	    //지도 표시
+	    var map = new naver.maps.Map('map', {
+	        zoom: 12,
+	        center: new naver.maps.LatLng(37.521673, 127.134042),
+	        zoomControl: true,
+        	scrollWheel: false	 
+	    });
+	
+	    //위의 배열을 이용해 라인 그리기
+	    var polyline = new naver.maps.Polyline({
+	        path: polylinePath,      //선 위치 변수배열
+	        strokeColor: '#FF0000', //선 색 빨강 #빨강,초록,파랑
+	        strokeOpacity: 0.6, //선 투명도 0 ~ 1
+	        strokeWeight: 5,   //선 두께
+	        map: map           //오버레이할 지도
+	    });
+		
+		
+		// 시작지점 마커
+		 var marker = new naver.maps.Marker({
+	        position: polylinePath[0], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+		
+	    // 도착지점 마커
+	    var marker = new naver.maps.Marker({
+	        position: polylinePath[polylinePath.length-1], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+	 
+	</script>
+</div> 
+</body> 
+</html>

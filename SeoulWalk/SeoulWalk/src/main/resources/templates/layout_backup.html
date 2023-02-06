@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <title>Seoul Walk</title>
+</head>
+
+<body>
+
+<div style="display:flex;
+			justify-content:space-between;
+			margin-bottom:10px;">
+	<div class="divmp">
+		<a class = "hometext" href="/">Seoul Walk</a>
+	</div>
+	
+	<div style="display:flex;
+		 		justify-content:center;
+		 		margin-right:100px;">
+		<div>
+		<p class="icon"
+			style="padding-right: 20px;
+					padding-top:15px;">
+		</div>
+		<div style="display:flex;
+					flex-direction:column;
+					justify-content:end;
+					padding-bottom:5px">
+			<h2 style="margin-left:10px; font-size:25px; padding-left:18px">서울</h2>
+			<span class="ctemp" style="font-size:16px;">현재 기온: </span>
+			<!--<p class="lowtemp">최저 기온: </p>
+			<p class="hightemp">최고 기온: </p>-->
+		</div>
+
+	</div>
+	
+	<div class="divmp"
+		<span>
+            <a class="login-out" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+            <a class="login-out" sec:authorize="isAuthenticated()" href="/logout">로그아웃</a>
+        </span>
+	</div>
+</div>
+
+<div th:replace="~{navbar :: navbarFragment}"></div>
+
+<th:block layout:fragment="content"></th:block>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
+	crossorigin="anonymous"></script>
+	
+	<script>
+		 
+			$.getJSON('https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=2ba921487b84a2fa7b3137fdf4c70628&units=metric', function(result){
+			
+			$('.ctemp').append(result.main.temp+"°C");
+			$('.lowtemp').append(result.main.temp_min+"°C");
+			$('.hightemp').append(result.main.temp_max+"°C");
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+result.weather[0].icon+'.png" alt="'+result.
+			weather[0].description+'">'
+			$('.icon').html(wiconUrl);
+			
+			var ct = result.dt;
+			 
+			function convertTime(t){
+				var ot = new Date(t*1000); 
+				var hr = ot.getHours();
+				var m = ot.getMinutes();
+				var s = ot.getSeconds();
+				
+				return hr + ':' + m + ':' + s
+				
+			}
+			
+			
+			var currentTime=convertTime(ct)
+			$('.time').append(currentTime);
+			
+		});
+		
+		
+
+	</script>
+
+</body>

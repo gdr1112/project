@@ -1,0 +1,181 @@
+<html layout:decorate="~{layout}">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/ctest/slide.css}">
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+Kakao.init('39b4049e1049b0ff47d6738edcb2c49c');
+</script>
+</head>
+
+<body>
+<div layout:fragment="content">
+
+<form method="post" action="seoulwalktest">
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+<div class="slide slide_wrap" style="padding-top:100px;">
+	
+	<div class="slide_item">
+		
+			<div class="imgbox">
+				<div class="imgbox_child">
+					<img class="testimg"  th:src="@{/img/3873470.jpg}">
+				</div>
+			</div>
+		
+			<div style="margin:30px;
+						font-size: 29px;
+						font-weight: bold;">
+				나만의 둘레길 유형 테스트
+			</div>
+			
+			<div style="margin:30px;">
+				<button class="slide_next_button" type="button">테스트 시작하기</button>
+			</div>
+			<div style="width:358px; display:flex; justify-content:space-around; padding-top:50px;">
+				<a id="btnTwitter" href="javascript:shareTwitter();"><img th:src="@{/img/rcmcourse/icon/icon-twitter.png}"></a>
+				<a id="btnFacebook" href="javascript:shareFacebook();"><img th:src="@{/img/rcmcourse/icon/icon-facebook.png}"></a>
+				<a id="btnKakao" href="javascript:shareKakao();"><img th:src="@{/img/rcmcourse/icon/icon-kakao.png}"></a>
+			</div>
+			
+	</div>
+
+
+	<div class="slide_item">
+		<div class = "prev">
+			<div class="slide_prev_button" style="visibility : hidden;">&lt</div>
+			<div class = "count">1/8</div>
+		</div>
+	
+		<div class="q">Q1</div>
+		<div class="qt">산책을 간다면 나는 누구와 함께?</div>
+		<input class = "slide_next_button" type="radio" id="q11" name = "q1" value="T"><label for="q11">애인이나 가족</label>
+		<input class = "slide_next_button" type="radio" id="q12" name = "q1" value="F"><label for="q12">나는 혼자가 좋아!</label>
+	</div>
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">2/8</div>
+		</div>
+		<div class="q">Q2</div>
+		<div class="qt">지금 당장 보고 싶은 것은??</div>
+		<input class = "slide_next_button" type="radio" id="q21" name = "q2" value="a"><label for="q21">갈대밭</label>
+		<input class = "slide_next_button" type="radio" id="q22" name = "q2" value="b"><label for="q22">벚꽃</label>
+		<input class = "slide_next_button" type="radio" id="q23" name = "q2" value="c"><label for="q23">푸른 하늘</label>
+	</div>
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">3/8</div>
+		</div>
+		<div class="q">Q3</div>
+		<div class="qt">오늘은 금요일 밤. 나는!</div>
+		<input class = "slide_next_button" type="radio" id="q31" name = "q3" value="T"><label for="q31">집에서 쉰다.</label>
+		<input class = "slide_next_button" type="radio" id="q32" name = "q3" value="F"><label for="q32">지인들과 즐거운 시간을 보낸다.</label>
+	</div>
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">4/8</div>
+		</div>
+		<div class="q">Q4</div>
+		<div class="qt">휴일에 가장 하고싶은 것은?</div>
+		<input class = "slide_next_button" type="radio" id="q41" name = "q4" value="a"><label for="q41">공연 보기</label>
+		<input class = "slide_next_button" type="radio" id="q42" name = "q4" value="b"><label for="q42">숲 나들이</label>
+		<input class = "slide_next_button" type="radio" id="q43" name = "q4" value="c"><label for="q43">한강 산책</label>
+	</div>	
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">5/8</div>
+		</div>
+		<div class="q">Q5</div>
+		<div class="qt">산책할 때 나는?</div>
+		<input class = "slide_next_button" type="radio" id="q51" name = "q5" value="T"><label style="font-size:15px; font-weight:bold;" for="q51">사람들이나 주변 풍경의 분위기에 집중한다.</label>
+		<input class = "slide_next_button" type="radio" id="q52" name = "q5" value="F"><label style="font-size:15px; font-weight:bold;" for="q52">복잡한 생각을 정리하는 데 집중하며 움직인다.</label>
+	</div>		
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">6/8</div>
+		</div>
+		<div class="q">Q6</div>
+		<div class="qt">나의 취향은!!</div>
+		<input class = "slide_next_button" type="radio" id="q61" name = "q6" value="a"><label for="q61">양식</label>
+		<input class = "slide_next_button" type="radio" id="q62" name = "q6" value="b"><label for="q62">한식</label>
+	</div>
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">7/8</div>
+		</div>
+		<div class="q">Q7</div>
+		<div class="qt">걷던 중에 갑자기 고픈 배!!</div>
+		<input class = "slide_next_button" type="radio" id="q71" name = "q7" value="T"><label style="font-size:15px; font-weight:bold;" for="q71">아무거나 먹자. 근처 아무 식당이나 들어간다.</label>
+		<input class = "slide_next_button" type="radio" id="q72" name = "q7" value="F"><label style="font-size:15px; font-weight:bold;" for="q72">아무거나 먹을 순 없다. 근처 맛집 검색!!</label>
+	</div>			
+	
+	<div class="slide_item">
+		<div class = "prev">
+			<button class="slide_prev_button" type="button">&lt</button>
+			<div class = "count">8/8</div>
+		</div>
+		<div class="q">Q8</div>
+		<div class="qt">등산갈까?</div>
+		<input class = "slide_next_button" type="radio" id="q81" name = "q8" value="a"><label for="q81">아니요?</label>
+		<input class = "slide_next_button" type="radio" id="q82" name = "q8" value="b"><label for="q82">네! 저 등산 좋아해요!</label>
+	</div>	
+	
+	
+	<div class="slide_item">
+		<div style="margin-top:100px;"></div>
+		<button class="result" type="submit">테스트 결과보기</button>
+		<button class="result" type="button" onclick="location.href='roadtest'">다시하기</button>
+	</div>
+	
+	
+
+	
+</div>
+</form>
+<script type="text/javascript" th:src="@{/ctest/slide.js}"></script>
+<script th:inline="javascript">
+
+// sns 공유 기능
+function shareTwitter(){
+	var sendText = "나만의 둘레길 유형 테스트";
+	var sendUrl = "https://seoulwalk.kro.kr/roadtest";
+	window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+}
+
+function shareFacebook() {
+    var sendUrl = "https://seoulwalk.kro.kr/roadtest";
+    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+}
+
+function shareKakao(){
+	Kakao.Share.createDefaultButton({
+		container : "#btnKakao",
+		objectType: "feed",
+		content: {
+			title: "둘레길 유형 테스트",
+			description: "나에게 맞는 둘레길 코스는?",
+			imageUrl : "",
+			link:{
+				webUrl: "https://seoulwalk.kro.kr/roadtest",
+				mobileWebUrl:"https://seoulwalk.kro.kr/roadtest"
+			}
+		}
+	});
+}
+</script>
+
+
+</div>
+</body>	
+</html>

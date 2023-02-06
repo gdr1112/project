@@ -1,0 +1,293 @@
+<html layout:decorate="~{layout}"> 
+<head>
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" th:href="@{/coursestyle.css}">
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=z259xu45mt"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>2코스 경로</title> 
+</head>
+
+<body>
+<div layout:fragment="content" class="container my-5">
+	
+	<div class="coursetext">	
+		<div class="coursetextSubText">서울 광진구ㆍ중랑구</div>
+		<h1 class="coursetextTitle">서울둘레길 2코스 용마·아차산코스</h1>
+		<div class="coursetextSubText">길이 12.3km ㆍ 소요시간 5시간 10분 ㆍ 난이도 중급</div>
+	</div>
+	
+	<br><br>
+	
+	<div class="content2">
+		<div class="section">
+			<input type="radio" name="slide" id="slide01" checked>
+			<input type="radio" name="slide" id="slide02">
+			<input type="radio" name="slide" id="slide03">
+			<div class="slidewrap">
+				
+				<ul style="z-index: 0;" class="slidelist">
+					<!-- 슬라이드 영역 -->
+					<li class="slideitem">
+						<a>
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/2-1.jpg}" />
+						
+						
+						</a>
+					</li>
+					<li class="slideitem">
+						<a>
+							
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/2-2.jpg}" />
+						
+						</a>
+					</li>
+					<li class="slideitem">
+						<a>
+							
+							<div class="textbox">
+		
+							</div>
+							<img th:src="@{/img/detail/2-3.jpg}" />
+					
+						</a>
+					</li>
+					<!-- 좌,우 슬라이드 버튼 -->
+					<div class="slide-control">
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide03" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide02" class="right"></label>
+						</div>
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide01" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide03" class="right"></label>
+						</div>
+						<div>
+							<label th:style="'background-image:url('+ @{/img/detail/left.png} +');'" for="slide02" class="left"></label>
+							<label th:style="'background-image:url('+ @{/img/detail/right.png} +');'" for="slide01" class="right"></label>
+						</div>
+					</div>
+		
+				</ul>
+				<!-- 페이징 -->
+				<ul class="slide-pagelist">
+					<li><label for="slide01"></label></li>
+					<li><label for="slide02"></label></li>
+					<li><label for="slide03"></label></li>
+				</ul>
+			</div>	
+		</div>
+		</div>
+	
+	<div id="map" style="width:100%;height:400px; z-index: 0;"></div>
+	
+	<br><br>
+	
+	<H1 class="coursetextTitle">코스소개</H1><br><br><hr>
+	
+	<div class="coursetextSubText2">코스개요</div><br>
+	<div class="coursetextSubText3">
+		<div>- 묵동천, 망우산, 용마산, 아차산의 산 능선을 따라 산책하는 코스</div>
+		<div>- 서울 둘레길 중 전망이 가장 뛰어난 코스이며, 용마산과 아차산은 정비가 잘되어있어</div>
+		<div>&nbsp&nbsp&nbsp&nbsp편안한 트래킹이 가능한 길</div>
+		<div>- 아차산보루 등 역사, 문화자원이 풍부하며 아차산 생태공원으로 인해 볼거리가 다양한 구간</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">관광포인트</div><br>
+	<div class="coursetextSubText3">
+		<div>- 독립운동가들과 방정환, 이중섭, 박인환 등 17인의 유명 인사가 잠들어 있는 '망우묘지공원'</div>
+		<div>- 아차산의 역사와 문화유적을 볼 수 있는 '아차산 역사문화홍보관'</div>
+		<div>- 삼국시대의 유적으로 추정되는 소형 석축산성 '아차산 4보루 성터'</div>
+	</div><br>
+	
+	<div class="coursetextSubText2">여행자 정보</div><br>
+	<div class="coursetextSubText3">
+		<div>- 지하철 6호선 화랑대역 4번 출구</div>
+		<div>- 아차산 생태공원을 지나 광나루역으로 가는 길에 마을 담장에 벽화와 아기자기한 가게들이 있음</div>
+		<div>- 해맞이 광장에서 매년 1월 1일 일출을 보기 좋으며, 다채로운 축제가 매년 열리고 있음</div>
+		<div>- 서울둘레길안내센터에서 완주증을 받을 수 있음</div>
+	</div><br><br><br>
+	
+	<H1 class="coursetextTitle">주요 관광지</H1><br><br><hr>
+	<div class="content2">
+		<div class="faq-box-content">
+		<section class="section section-faq">
+		  <div class="container mx-auto">
+		
+		    <div class="faq-box">
+		      <ul>
+		        <li>
+		          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/망우묘지공원.jpg}" /><br/><b>망우역사문화공원</b></span></div>
+		          <div class="faq-box__answer">
+				   <div class="faq-box__answer01">
+		            <div>
+						서울특별시 중랑구 망우로 91길 2(망우동)에 위치한 종합장사시설이다.
+		            </div><br>
+		             <div>
+						 1977년 망우리공동묘지에서 망우묘지공원으로 명칭이 변경됐으며, '공동묘지'라는 이름이 혐오감을 불러일으킨다는 이유로 망우리공원으로 개칭된 후 다시 망우역사문화공원으로 개칭되었다.
+		            </div><br>
+		            <div>
+						 과거 독립운동가들의 사망 후 장지로 쓰인 일이 많았으며, 한용운, 방정환, 이중섭 등 유명인들이 묻혀 있다.	 
+		            </div><br>
+		        	<div>
+				         대한민국 근현대사를 상징하는 7천여 분을 추모하는 공간이기 때문에 역사적 가치가 매우 큰 장소이다.		 
+		            </div>
+		            </div>
+		
+		          </div>
+		        </li>
+		        <li>
+		          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/묵동천.jpg}" /><br/><b>묵동천</b></span></div>
+		          <div class="faq-box__answer">
+					<div class="faq-box__answer01">
+		            <div>
+						서울특별시 중랑구 신내동과 노원구 공릉동 태릉골프장에서 발원하여 중랑천으로 흘러드는 길이 5.55km의 하천이다.
+		            </div><br>
+		            <div>
+						상류 쪽에서는 신내천(新內川), 육군사관학교를 지나 합류하는 지류는 태릉천(泰陵川) 내지는 화랑천(花郞川)이라고 하나, 공식 명칭으로는 모두 묵동천에 포함되어 있다.
+		            </div><br>
+		            <div>
+						중랑구와 노원구의 경계가 묵동천을 따라 설정되어 있고, 묵동교부터 봉화산역 인근까지의 구간은 묵동천 위로 북부간선도로가 고가도로 형태로 있다. 묵동천 바로 옆으로는 서울 지하철 6호선이 지나고 있다.
+		            </div>
+		            </div>
+		          </div>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</section>
+		</div>
+		<div class="faq-box-content">
+		<section class="section section-faq">
+		  <div class="container mx-auto">
+		
+		    <div class="faq-box">
+		      <ul>
+		        <li>
+		          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/극락사.jpg}" /><br/><b>극락사</b></span></div>
+		          <div class="faq-box__answer">
+					  <div class="faq-box__answer01">
+			              <div>
+							  1968년 4월 10일 건립된 극락사는 태조 이성계가 '절골' 이라 이름 붙인 곳에 위치하고 있는데, 공기 좋고 경치 좋은 생활명소로 연혁은 97년 화재로 소실되어 기록으로 남아있는 것이 없다. 
+			              </div><br>
+						  <div>
+							  하지만, 화재에도 불구하고 신도들이 끊이지 않고 있으며 인근에 있는 약수터나 동래 정씨 묘역 등을 사이에 두고 있다.
+			              </div>
+		              </div><br>
+						
+		          </div>
+		        </li>
+		        <li>
+		          <div class="faq-box__question"><span><img class="tourlistspotimg" th:src="@{/img/detail/중랑캠핑숲.jpg}" /><br/><b>중랑캠핑숲</b></span></div>
+		          <div class="faq-box__answer">
+					 <div class="faq-box__answer01">
+			              <div>
+							  중랑캠핑숲은 2010년 11월 20일 개원했으며 서울특별시 중랑구 망우로87길에 위치하고 있다. 
+			              </div><br>
+						  <div>
+							  총 면적이 179,666m²로 학생소풍 및 가족단위 피크닉을 주제로 한 체험형 공원이다. 건강한 숲을 주제로 한 생태공원이며 교양시설로 청소년독서실, 청소년커뮤니티센터, 생태학습존, 청소년문화전, 소규모 야외무대 설치 등 청소년 중심의 문화 공원으로 조성되었다.
+			              </div><br>
+			  			  <div>
+							  가족 단위 오토캠핑이 가능한 가족캠프존(3만7200m²)과 청소년문화존(2만530이에 세계 4대 꽃 중 하나로0m²), 생태학습존(4만2000m²), 숲체험존(7만5166m²)의 4개 구역으로 구성되어있다. 캠프존은 47면의 캠핑 사이트가 설치돼 하루 최대 200명 이상 이용 가능하다. 또한 캠핑장 내 주차가 가능하다.
+			              </div>
+		              </div>
+		          </div>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</section>
+		</div>
+	</div>
+	
+	<br><br>
+	
+	<H1 class="coursetextTitle">주요지점 및 편의시설</H1><br><br>
+	<hr class="hrheight"><br>
+	<b class="coursetextSubText2">코스 경로</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">화랑대역-묵동천-중랑캠핑숲-망우산-용마산-아차산-광나루역</b><br><hr>
+	<b class="coursetextSubText2">식수</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">아차산생태공원</b><br><hr>
+	<b class="coursetextSubText2">매점</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b class="coursetextSubText4">망우산과 아차산을 제외한 구간 곳곳에 위치</b><br><hr>
+	<br><br><br><br><br><br>
+	
+	<script>
+	function FaqBox__init() {
+	  $('.faq-box > ul > li').click(function() {
+	    let $this = $(this);
+	    
+	    $this.siblings('.hover').find(' > .faq-box__answer').stop().slideUp(300); 
+	    $this.siblings('.hover').removeClass('hover');
+	    
+	    if ( $this.hasClass('hover') ) {
+	      $this.find(' > .faq-box__answer').stop().slideUp(300); 
+	      $this.removeClass('hover');
+	    }
+	    else {
+	      $this.find(' > .faq-box__answer').stop().slideDown(300); 
+	      $this.addClass('hover');
+	    }
+	  });
+	  
+	  $('.faq-box__answer').click(function() {
+	    return false;
+	  });
+	}
+	
+	FaqBox__init();	
+		
+	</script>	
+	
+	<script th:inline="javascript" id="data">
+	let cs =[[${cs}]];
+	let jsoncs = JSON.parse(cs);
+	let polylinePath = [];
+	let spltjson = jsoncs[0].split(",");
+	for(let i = 0; i<jsoncs.length;i++){
+		
+		let spltjson = jsoncs[i].split(",");
+		
+		polylinePath.push(new naver.maps.LatLng(parseFloat(spltjson[0]), parseFloat(spltjson[1])));
+	}
+	</script>
+	
+	<script id="code">
+	    //지도 표시
+	    var map = new naver.maps.Map('map', {
+	        zoom: 12,
+	        center: new naver.maps.LatLng(37.589454, 127.097006),
+	        zoomControl: true,
+        	scrollWheel: false	        
+	    });
+	
+	    //위의 배열을 이용해 라인 그리기
+	    var polyline = new naver.maps.Polyline({
+	        path: polylinePath,      //선 위치 변수배열
+	        strokeColor: '#FF0000', //선 색 빨강 #빨강,초록,파랑
+	        strokeOpacity: 0.6, //선 투명도 0 ~ 1
+	        strokeWeight: 5,   //선 두께
+	        map: map           //오버레이할 지도
+	    });
+		
+		
+		// 시작지점 마커
+		 var marker = new naver.maps.Marker({
+	        position: polylinePath[0], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+		
+	    // 도착지점 마커
+	    var marker = new naver.maps.Marker({
+	        position: polylinePath[polylinePath.length-1], //마크 표시할 위치 배열의 마지막 위치
+	        map: map
+	    });
+	    
+	</script>
+</div> 
+</body> 
+</html>
