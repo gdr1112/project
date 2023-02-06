@@ -11,3 +11,8 @@
     - [시연영상](https://www.youtube.com/watch?v=TVT5QuFyewY)
     
     ---
+2. SeoulWalk 둘레길 안내 프로젝트
+    - 폴더명 : [SeoulWalk](https://github.com/gdr1112/project/tree/main/SeoulWalk)
+    - 기간 : 2022.12.16 ~ 2023.01.27
+    - [프로젝트 자세히 보러가기](https://github.com/gdr1112/project/tree/main/SeoulWalk)
+    
