@@ -1,5 +1,5 @@
 ## 프로젝트
- 1. 지하철 교통 도우미 (산대특 챗봇 프로젝트)
+ ## 지하철 교통 도우미 (산대특 챗봇 프로젝트)
     - 폴더명 : [human-subway](https://github.com/gdr1112/project/tree/main/human-subway)    
     - 기간: 2022.11.18 ~ 2022.12.2
     - 팀명: SAIN(3명)
@@ -10,7 +10,7 @@
     - [시연영상](https://www.youtube.com/watch?v=TVT5QuFyewY)
     
     ---
-2. SeoulWalk 둘레길 안내 프로젝트
+## SeoulWalk 둘레길 안내 프로젝트
     - 폴더명 : [SeoulWalk](https://github.com/gdr1112/project/tree/main/SeoulWalk/SeoulWalk)
     - 기간 : 2022.12.16 ~ 2023.01.27
     - 내용 : 서울 둘레길 코스 정보를 알려주고 추천해주는 프로젝트
