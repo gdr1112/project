@@ -16,5 +16,5 @@
     - 내용 : 서울 둘레길 코스 정보를 알려주고 추천해주는 프로젝트
     - [프로젝트 정보 자세히 보러가기](https://github.com/gdr1112/project/tree/main/SeoulWalk)
     - [시연영상](https://www.youtube.com/watch?v=FQA0DWPVtXA)
-    - [최종 PDf](https://www.canva.com/design/DAFYKRpZLjE/w6bP9cymovst1X-dKRm1Dw/view#15)
+    - [최종 PDf](https://www.canva.com/design/DAFYKRpZLjE/w6bP9cymovst1X-dKRm1Dw/view#1)
     
